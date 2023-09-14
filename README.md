@@ -14,7 +14,7 @@
 
 ## Warning
 
-This project is still in Beta, there will be a lot of bugs and possibly crashes.
+This project is still in Beta, there will be a lot of bugs and possibly crashes. //build
 
 ## What is Salhack?
 Salhack is a 1.12.2 open sourced client that got discontinued. This project is a continuation for the client for the latest version of minecraft and fabric.
