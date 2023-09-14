@@ -2,7 +2,7 @@ package me.ionar.salhack.gui.hud.components;
 
 import me.ionar.salhack.font.FontRenderers;
 import me.ionar.salhack.gui.hud.HudComponentItem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.ui.HudModule;
 import me.ionar.salhack.util.color.SalRainbowUtil;
@@ -52,7 +52,7 @@ public class WelcomerHudComponent extends HudComponentItem {
             context.drawTextWithShadow(mc.textRenderer, Text.of(WatermarkString), (int) GetX(), (int) GetY(), hud.Rainbow.getValue() ? Rainbow.GetRainbowColorAt(Rainbow.getRainbowColorNumber()) : GetTextColor());
         }
         Rainbow.OnRender();
-        SetWidth(Wrapper.GetMC().textRenderer.getWidth(WatermarkString));
-        SetHeight(Wrapper.GetMC().textRenderer.fontHeight);
+        SetWidth(SalHack.GetMC().textRenderer.getWidth(WatermarkString));
+        SetHeight(SalHack.GetMC().textRenderer.fontHeight);
     }
 }

@@ -11,7 +11,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.Window;
 
 import me.ionar.salhack.gui.click.component.item.ComponentItem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.module.ui.ClickGuiModule;
 import me.ionar.salhack.module.ui.ColorsModule;
 import net.minecraft.util.Identifier;
@@ -80,7 +80,7 @@ public class MenuComponent {
         }
 
         if (!allowsOverflow) {
-            Window res = Wrapper.GetMC().getWindow();
+            Window res = SalHack.GetMC().getWindow();
             /// Don't allow too much to right, or left
             if (x+GetWidth() >= res.getScaledWidth()) x = res.getScaledWidth() - GetWidth();
             else if (x < 0) x = 0;
@@ -144,7 +144,7 @@ public class MenuComponent {
 
             if (HoveredItem != null && (ClickGUI != null ? ClickGUI.HoverDescriptions.getValue() : true)) {
                 if (HoveredItem.GetDescription() != null && !Objects.equals(HoveredItem.GetDescription(), "")) {
-                    context.fill(mouseX+15, mouseY, (int) (mouseX+19+FontRenderers.getTwCenMtStd22().getStringWidth(HoveredItem.GetDescription())), mouseY + Wrapper.GetMC().textRenderer.fontHeight+3, 0x90000000);
+                    context.fill(mouseX+15, mouseY, (int) (mouseX+19+FontRenderers.getTwCenMtStd22().getStringWidth(HoveredItem.GetDescription())), mouseY + SalHack.GetMC().textRenderer.fontHeight+3, 0x90000000);
                     FontRenderers.getTwCenMtStd22().drawString(context.getMatrices(), HoveredItem.GetDescription(), mouseX+17, mouseY, 0xFFFFFF);
                 }
             }
@@ -165,7 +165,7 @@ public class MenuComponent {
         Y += componentItem.GetHeight();
         componentItem.OnMouseMove(mouseX, mouseY, GetX(), GetY());
         componentItem.Update();
-        if (componentItem.HasState(ComponentItem.Extended)) context.fill((int) (x+1), (int) Y, (int) (x+componentItem.GetWidth()-3), (int) (Y + Wrapper.GetMC().textRenderer.fontHeight + 3),0x080808);
+        if (componentItem.HasState(ComponentItem.Extended)) context.fill((int) (x+1), (int) Y, (int) (x+componentItem.GetWidth()-3), (int) (Y + SalHack.GetMC().textRenderer.fontHeight + 3),0x080808);
         int color = 0xFFFFFF;
         boolean hovered = canHover && mouseX > x && mouseX < x+componentItem.GetWidth() && mouseY > Y && mouseY < Y+componentItem.GetHeight();
         boolean dropDown = componentItem.HasState(ComponentItem.Extended);

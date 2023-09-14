@@ -9,7 +9,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.CommandManager;
 import me.ionar.salhack.managers.HudManager;
 import me.ionar.salhack.module.Value;
@@ -41,7 +41,7 @@ public class HudComponentItem {
     private boolean Selected = false;
     private boolean MultiSelectedDragging = false;
 
-    protected MinecraftClient mc = Wrapper.GetMC();
+    protected MinecraftClient mc = SalHack.GetMC();
 
     public HudComponentItem(String p_DisplayName, float p_X, float p_Y) {
         DisplayName = p_DisplayName;

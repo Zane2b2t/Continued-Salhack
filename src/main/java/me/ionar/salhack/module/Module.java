@@ -3,7 +3,7 @@ package me.ionar.salhack.module;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.events.salhack.ModuleEvent;
 import me.ionar.salhack.main.SalHack;
-import me.ionar.salhack.main.Wrapper;
+
 import me.ionar.salhack.managers.CommandManager;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.managers.PresetsManager;
@@ -28,7 +28,7 @@ public abstract class Module {
     private boolean ClickGuiValueUpdate;
     public List<Value> ValueList = new ArrayList<>();
     public float RemainingXAnimation = 0f;
-    protected final MinecraftClient mc = Wrapper.GetMC();
+    protected final MinecraftClient mc = SalHack.GetMC();
 
     private Module(String displayName, String[] alias, int key, int color, ModuleType type) {
         DisplayName = displayName;

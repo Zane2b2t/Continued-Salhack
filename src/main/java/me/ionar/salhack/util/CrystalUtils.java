@@ -1,13 +1,11 @@
 package me.ionar.salhack.util;
 
-import com.google.gson.internal.NonNullElementWrapperList;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.DamageUtil;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,11 +19,10 @@ import net.minecraft.world.explosion.Explosion;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CrystalUtils {
     public static boolean canPlaceCrystal(final BlockPos pos) {
-        final MinecraftClient mc = Wrapper.GetMC();
+        final MinecraftClient mc = SalHack.GetMC();
 
         final Block block = mc.world.getBlockState(pos).getBlock();
 

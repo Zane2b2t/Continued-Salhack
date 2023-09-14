@@ -1,6 +1,6 @@
 package me.ionar.salhack.util.entity;
 
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.Entity;
@@ -19,8 +19,8 @@ public class EntityUtil {
 
     public static ArrayList<Entity> getEntities() {
         ArrayList<Entity> entities = new ArrayList<>();
-        if (Wrapper.GetMC().world != null) {
-            for (Entity entity : Wrapper.GetMC().world.getEntities()) {
+        if (SalHack.GetMC().world != null) {
+            for (Entity entity : SalHack.GetMC().world.getEntities()) {
                 entities.add(entity);
             }
         }
@@ -28,7 +28,7 @@ public class EntityUtil {
     }
 
     public static boolean isPassive(Entity entity) {
-        if (entity instanceof WolfEntity && ((WolfEntity) entity).isUniversallyAngry(Wrapper.GetMC().world)) return false;
+        if (entity instanceof WolfEntity && ((WolfEntity) entity).isUniversallyAngry(SalHack.GetMC().world)) return false;
         if (entity instanceof AnimalEntity || entity instanceof AmbientEntity || entity instanceof SquidEntity) return true;
         return entity instanceof IronGolemEntity && ((IronGolemEntity) entity).getTarget() == null;
     }
@@ -38,7 +38,7 @@ public class EntityUtil {
     }
 
     public static boolean isFakeLocalPlayer(Entity entity) {
-        return entity != null && entity.getId() == -100 && Wrapper.GetMC().player != entity;
+        return entity != null && entity.getId() == -100 && SalHack.GetMC().player != entity;
     }
 
     /**
@@ -57,18 +57,18 @@ public class EntityUtil {
     }
 
     public static boolean isInWater(Entity entity) {
-        if (entity == null || Wrapper.GetMC().world == null) return false;
+        if (entity == null || SalHack.GetMC().world == null) return false;
         double y = entity.getY() + 0.01;
         for (int x = MathHelper.floor(entity.getX()); x < MathHelper.ceil(entity.getX()); x++)
             for (int z = MathHelper.floor(entity.getZ()); z < MathHelper.ceil(entity.getZ()); z++) {
                 BlockPos pos = new BlockPos(x, (int) y, z);
-                if (Wrapper.GetMC().world.getBlockState(pos).getFluidState() != null) return true;
+                if (SalHack.GetMC().world.getBlockState(pos).getFluidState() != null) return true;
             }
         return false;
     }
 
     public static boolean isDrivenByPlayer(Entity entity) {
-        return Wrapper.GetMC().player != null && entity != null && entity.equals(Wrapper.GetMC().player.getVehicle());
+        return SalHack.GetMC().player != null && entity != null && entity.equals(SalHack.GetMC().player.getVehicle());
     }
 
     public static boolean isAboveWater(Entity entity) {
@@ -76,7 +76,7 @@ public class EntityUtil {
     }
 
     public static boolean isAboveWater(Entity entity, boolean packet) {
-        if (entity == null || Wrapper.GetMC().world == null) return false;
+        if (entity == null || SalHack.GetMC().world == null) return false;
         double y = entity.getY() - (packet ? 0.03 : (EntityUtil.isPlayer(entity) ? 0.2 : 0.5));
         // increasing this seems
         // to flag more in NCP but
@@ -86,7 +86,7 @@ public class EntityUtil {
         for (int x = MathHelper.floor(entity.getX()); x < MathHelper.ceil(entity.getX()); x++)
             for (int z = MathHelper.floor(entity.getZ()); z < MathHelper.ceil(entity.getZ()); z++) {
                 BlockPos pos = new BlockPos(x, MathHelper.floor(y), z);
-                if (Wrapper.GetMC().world.getBlockState(pos).getFluidState() != null) return true;
+                if (SalHack.GetMC().world.getBlockState(pos).getFluidState() != null) return true;
             }
         return false;
     }
@@ -122,7 +122,7 @@ public class EntityUtil {
 
     public static int GetPlayerMS(PlayerEntity player) {
         if (player.getUuid() != null) {
-            ClientPlayNetworkHandler handler = Wrapper.GetMC().getNetworkHandler();
+            ClientPlayNetworkHandler handler = SalHack.GetMC().getNetworkHandler();
             if (handler != null) {
                 PlayerListEntry entry = handler.getPlayerListEntry(player.getUuid());
                 if (entry != null) return entry.getLatency();

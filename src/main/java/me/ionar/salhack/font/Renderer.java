@@ -1,7 +1,7 @@
 package me.ionar.salhack.font;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.client.gl.ShaderProgram;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.BufferRenderer;
@@ -79,7 +79,7 @@ public class Renderer {
         }
 
         static Vec3d transformVec3d(Vec3d in) {
-            Camera camera = Wrapper.GetMC().gameRenderer.getCamera();
+            Camera camera = SalHack.GetMC().gameRenderer.getCamera();
             Vec3d camPos = camera.getPos();
             return in.subtract(camPos);
         }
@@ -367,7 +367,7 @@ public class Renderer {
         }
 
         public static Vec3d getCrosshairVector() {
-            Camera camera = Wrapper.GetMC().gameRenderer.getCamera();
+            Camera camera = SalHack.GetMC().gameRenderer.getCamera();
 
             float pi = (float) Math.PI;
             float yawRad = (float) Math.toRadians(-camera.getYaw());
@@ -381,7 +381,7 @@ public class Renderer {
         }
 
         public static void renderActions() {
-            Camera c = Wrapper.GetMC().gameRenderer.getCamera();
+            Camera c = SalHack.GetMC().gameRenderer.getCamera();
             Vec3d cp = c.getPos();
             currentStack.stream().sorted(Comparator.comparingDouble(value -> -value.pos.distanceTo(cp))).forEach(Renderable::draw);
             currentStack.clear();
@@ -432,7 +432,7 @@ public class Renderer {
          * @return the start position (0,0) of the tooltip content, after considering where to place it
          */
         public static Vec2f renderTooltip(MatrixStack stack, Color color, double arrowX, double arrowY, double width, double height, boolean renderUpsideDown) {
-            double centerX = Wrapper.GetMC().getWindow().getScaledWidth() / 2d;
+            double centerX = SalHack.GetMC().getWindow().getScaledWidth() / 2d;
             /*
             left:
             *           /\
@@ -580,8 +580,8 @@ public class Renderer {
             double height = endY - y;
             width = Math.max(0, width);
             height = Math.max(0, height);
-            float mulScale = (float) Wrapper.GetMC().getWindow().getScaleFactor();
-            int invertedY = (int) ((Wrapper.GetMC().getWindow().getScaledHeight() - (y + height)) * mulScale);
+            float mulScale = (float) SalHack.GetMC().getWindow().getScaleFactor();
+            int invertedY = (int) ((SalHack.GetMC().getWindow().getScaledHeight() - (y + height)) * mulScale);
             RenderSystem.enableScissor((int) (x * mulScale), invertedY, (int) (width * mulScale), (int) (height * mulScale));
         }
 
@@ -747,9 +747,9 @@ public class Renderer {
         }
 
         public static Vec3d getScreenSpaceCoordinate(Vec3d pos, MatrixStack stack) {
-            Camera camera = Wrapper.GetMC().getEntityRenderDispatcher().camera;
+            Camera camera = SalHack.GetMC().getEntityRenderDispatcher().camera;
             Matrix4f matrix = stack.peek().getPositionMatrix();
-            int displayHeight = Wrapper.GetMC().getWindow().getHeight();
+            int displayHeight = SalHack.GetMC().getWindow().getHeight();
             int[] viewport = new int[4];
             Vector3f target = new Vector3f();
 
@@ -767,8 +767,8 @@ public class Renderer {
             matrixProj.mul(matrixModel).project(transformedCoordinates.x(), transformedCoordinates.y(), transformedCoordinates.z(), viewport, target);
 
             return new Vec3d(
-                    target.x / Wrapper.GetMC().getWindow().getScaleFactor(),
-                    (displayHeight - target.y) / Wrapper.GetMC().getWindow().getScaleFactor(),
+                    target.x / SalHack.GetMC().getWindow().getScaleFactor(),
+                    (displayHeight - target.y) / SalHack.GetMC().getWindow().getScaleFactor(),
                     target.z
             );
         }
@@ -777,8 +777,8 @@ public class Renderer {
             double yCopy = y;
             double xCopy = x;
             Matrix4f projMat = RenderSystem.getProjectionMatrix();
-            xCopy /= Wrapper.GetMC().getWindow().getFramebufferWidth();
-            yCopy /= Wrapper.GetMC().getWindow().getFramebufferHeight();
+            xCopy /= SalHack.GetMC().getWindow().getFramebufferWidth();
+            yCopy /= SalHack.GetMC().getWindow().getFramebufferHeight();
             xCopy = xCopy * 2.0 - 1.0;
             yCopy = yCopy * 2.0 - 1.0;
             Vector4f pos = new Vector4f((float) xCopy, (float) yCopy, (float) z, 1.0F);

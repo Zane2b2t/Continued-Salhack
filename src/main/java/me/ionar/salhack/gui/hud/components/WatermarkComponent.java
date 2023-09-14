@@ -3,7 +3,7 @@ package me.ionar.salhack.gui.hud.components;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.font.FontRenderers;
 import me.ionar.salhack.gui.hud.HudComponentItem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.ui.HudModule;
@@ -40,8 +40,8 @@ public class WatermarkComponent extends HudComponentItem {
                 context.drawTextWithShadow(mc.textRenderer, Text.of(l_Text), (int) GetX(), (int) GetY(), hud.Rainbow.getValue() ? Rainbow.GetRainbowColorAt(Rainbow.getRainbowColorNumber()) : GetTextColor());
             }
             Rainbow.OnRender();
-            SetWidth(Wrapper.GetMC().textRenderer.getWidth(l_Text));
-            SetHeight(Wrapper.GetMC().textRenderer.fontHeight);
+            SetWidth(SalHack.GetMC().textRenderer.getWidth(l_Text));
+            SetHeight(SalHack.GetMC().textRenderer.fontHeight);
         }
         else {
             if (HudModule.CustomFont.getValue()) {
@@ -50,8 +50,8 @@ public class WatermarkComponent extends HudComponentItem {
                 context.drawTextWithShadow(mc.textRenderer, Text.of(WatermarkString), (int) GetX(), (int) GetY(), hud.Rainbow.getValue() ? Rainbow.GetRainbowColorAt(Rainbow.getRainbowColorNumber()) : GetTextColor());
             }
             Rainbow.OnRender();
-            SetWidth(Wrapper.GetMC().textRenderer.getWidth(WatermarkString));
-            SetHeight(Wrapper.GetMC().textRenderer.fontHeight);
+            SetWidth(SalHack.GetMC().textRenderer.getWidth(WatermarkString));
+            SetHeight(SalHack.GetMC().textRenderer.fontHeight);
         }
     }
 }

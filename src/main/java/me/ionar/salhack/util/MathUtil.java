@@ -1,6 +1,6 @@
 package me.ionar.salhack.util;
 
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
@@ -26,7 +26,7 @@ public class MathUtil {
     }
 
     public static double[] directionSpeedNoForward(double speed) {
-        final MinecraftClient mc = Wrapper.GetMC();
+        final MinecraftClient mc = SalHack.GetMC();
         if (mc.player == null) return new double[0];
         float forward = 1f;
 
@@ -53,7 +53,7 @@ public class MathUtil {
     }
 
     public static double[] directionSpeed(double speed) {
-        final MinecraftClient mc = Wrapper.GetMC();
+        final MinecraftClient mc = SalHack.GetMC();
         if (mc.player == null) return new double[0];
         float forward = mc.player.input.movementForward;
         float side = mc.player.input.movementSideways;

@@ -2,7 +2,7 @@ package me.ionar.salhack.gui.hud.components;
 
 import me.ionar.salhack.font.FontRenderers;
 import me.ionar.salhack.gui.hud.HudComponentItem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.ui.HudModule;
@@ -67,8 +67,8 @@ public class SpeedComponent extends HudComponentItem {
         }
 
         Rainbow.OnRender();
-        SetWidth(Wrapper.GetMC().textRenderer.getWidth(speed));
-        SetHeight(Wrapper.GetMC().textRenderer.fontHeight);
+        SetWidth(SalHack.GetMC().textRenderer.getWidth(speed));
+        SetHeight(SalHack.GetMC().textRenderer.fontHeight);
     }
 
     public enum UnitList {

@@ -2,7 +2,7 @@ package me.ionar.salhack.gui.hud.components;
 
 import me.ionar.salhack.font.FontRenderers;
 import me.ionar.salhack.gui.hud.HudComponentItem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.ui.HudModule;
 import me.ionar.salhack.util.color.SalRainbowUtil;
@@ -24,8 +24,8 @@ public class PlayerCountComponent extends HudComponentItem {
 
         final String playerCount = "Players: " + Formatting.WHITE + mc.world.getPlayers().size();
 
-        SetWidth(Wrapper.GetMC().textRenderer.getWidth(playerCount));
-        SetHeight(Wrapper.GetMC().textRenderer.fontHeight);
+        SetWidth(SalHack.GetMC().textRenderer.getWidth(playerCount));
+        SetHeight(SalHack.GetMC().textRenderer.fontHeight);
 
         if (HudModule.CustomFont.getValue()) {
             FontRenderers.getTwCenMtStd22().drawString(context.getMatrices(), playerCount, (int) (GetX()), (int) (GetY()), hud.Rainbow.getValue() ? Rainbow.GetRainbowColorAt(Rainbow.getRainbowColorNumber()) : GetTextColor(), true);

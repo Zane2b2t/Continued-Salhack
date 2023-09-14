@@ -2,7 +2,7 @@ package me.ionar.salhack.gui.click;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.ionar.salhack.gui.click.component.MenuComponent;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ImageManager;
 import me.ionar.salhack.util.imgs.SalDynamicTexture;
 import net.minecraft.client.gui.DrawContext;
@@ -160,7 +160,7 @@ public class ClickGuiScreen extends SalGuiScreen
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        final Window res = Wrapper.GetMC().getWindow();
+        final Window res = SalHack.GetMC().getWindow();
 
         if (!_snowList.isEmpty() && ClickGuiMod.Snowing.getValue())
         {

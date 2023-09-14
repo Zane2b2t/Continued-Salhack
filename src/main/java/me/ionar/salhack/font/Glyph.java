@@ -1,6 +1,6 @@
 package me.ionar.salhack.font;
 
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.client.texture.NativeImage;
 import net.minecraft.client.texture.NativeImageBackedTexture;
 import org.lwjgl.BufferUtils;
@@ -86,7 +86,7 @@ public class Glyph {
             ByteBuffer data = BufferUtils.createByteBuffer(content.length).put(content);
             data.flip();
             NativeImageBackedTexture tex = new NativeImageBackedTexture(NativeImage.read(data));
-            Wrapper.GetMC().execute(() -> Wrapper.GetMC().getTextureManager().registerTexture(i, tex));
+            SalHack.GetMC().execute(() -> SalHack.GetMC().getTextureManager().registerTexture(i, tex));
         } catch (Exception e) {
             e.printStackTrace();
         }

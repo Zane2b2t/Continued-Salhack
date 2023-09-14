@@ -3,7 +3,7 @@ package me.ionar.salhack.gui.click.component.item;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import org.lwjgl.glfw.GLFW;
 
 import me.ionar.salhack.gui.click.component.listeners.ComponentItemListener;
@@ -70,14 +70,14 @@ public class ComponentItemValue extends ComponentItem {
         if (value.getValue() instanceof Boolean) {
             String displayText = value.getName();
 
-            if (HasState(ComponentItem.Hovered) && Wrapper.GetMC().textRenderer.getWidth(displayText) > GetWidth() - 3) {
+            if (HasState(ComponentItem.Hovered) && SalHack.GetMC().textRenderer.getWidth(displayText) > GetWidth() - 3) {
                 if (DisplayString == null) DisplayString = value.getName();
 
                 displayText = DisplayString;
-                float width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+                float width = SalHack.GetMC().textRenderer.getWidth(displayText);
 
                 while (width > GetWidth() - 3) {
-                    width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+                    width = SalHack.GetMC().textRenderer.getWidth(displayText);
                     displayText = displayText.substring(0, displayText.length() - 1);
                 }
 
@@ -92,10 +92,10 @@ public class ComponentItemValue extends ComponentItem {
                 return displayText;
             } else DisplayString = null;
 
-            float width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+            float width = SalHack.GetMC().textRenderer.getWidth(displayText);
 
             while (width > GetWidth() - 3) {
-                width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+                width = SalHack.GetMC().textRenderer.getWidth(displayText);
                 displayText = displayText.substring(0, displayText.length() - 1);
             }
 
@@ -104,14 +104,14 @@ public class ComponentItemValue extends ComponentItem {
 
         String displayText = value.getName() + " " + (value.getValue() == null ? "null" : value.getValue().toString()) + " ";
 
-        if (HasState(ComponentItem.Hovered) && Wrapper.GetMC().textRenderer.getWidth(displayText) > GetWidth() - 3) {
+        if (HasState(ComponentItem.Hovered) && SalHack.GetMC().textRenderer.getWidth(displayText) > GetWidth() - 3) {
             if (DisplayString == null) DisplayString = value.getName() + " " + value.getValue().toString() + " ";
 
             displayText = DisplayString;
-            float width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+            float width = SalHack.GetMC().textRenderer.getWidth(displayText);
 
             while (width > GetWidth() - 3) {
-                width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+                width = SalHack.GetMC().textRenderer.getWidth(displayText);
                 displayText = displayText.substring(0, displayText.length() - 1);
             }
 
@@ -126,10 +126,10 @@ public class ComponentItemValue extends ComponentItem {
             return displayText;
         } else DisplayString = null;
 
-        float width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+        float width = SalHack.GetMC().textRenderer.getWidth(displayText);
 
         while (width > GetWidth() - 3) {
-            width = Wrapper.GetMC().textRenderer.getWidth(displayText);
+            width = SalHack.GetMC().textRenderer.getWidth(displayText);
             displayText = displayText.substring(0, displayText.length() - 1);
         }
 

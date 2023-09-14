@@ -2,7 +2,7 @@ package me.ionar.salhack.util.render;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.ionar.salhack.font.FontRenderers;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
@@ -23,12 +23,12 @@ public class RenderUtil {
     }
 
     public static void drawFilledBox(MatrixStack stack, Box box, Color c) {
-        float minX = (float) (box.minX - Wrapper.GetMC().getEntityRenderDispatcher().camera.getPos().getX());
-        float minY = (float) (box.minY - Wrapper.GetMC().getEntityRenderDispatcher().camera.getPos().getY());
-        float minZ = (float) (box.minZ - Wrapper.GetMC().getEntityRenderDispatcher().camera.getPos().getZ());
-        float maxX = (float) (box.maxX - Wrapper.GetMC().getEntityRenderDispatcher().camera.getPos().getX());
-        float maxY = (float) (box.maxY - Wrapper.GetMC().getEntityRenderDispatcher().camera.getPos().getY());
-        float maxZ = (float) (box.maxZ - Wrapper.GetMC().getEntityRenderDispatcher().camera.getPos().getZ());
+        float minX = (float) (box.minX - SalHack.GetMC().getEntityRenderDispatcher().camera.getPos().getX());
+        float minY = (float) (box.minY - SalHack.GetMC().getEntityRenderDispatcher().camera.getPos().getY());
+        float minZ = (float) (box.minZ - SalHack.GetMC().getEntityRenderDispatcher().camera.getPos().getZ());
+        float maxX = (float) (box.maxX - SalHack.GetMC().getEntityRenderDispatcher().camera.getPos().getX());
+        float maxY = (float) (box.maxY - SalHack.GetMC().getEntityRenderDispatcher().camera.getPos().getY());
+        float maxZ = (float) (box.maxZ - SalHack.GetMC().getEntityRenderDispatcher().camera.getPos().getZ());
 
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferBuilder = tessellator.getBuffer();
@@ -152,7 +152,7 @@ public class RenderUtil {
     public static void drawTextIn3D(String text, Vec3d pos, double offX, double offY, double textOffset, Color color) {
         RenderSystem.disableDepthTest();
         MatrixStack matrices = new MatrixStack();
-        Camera camera = Wrapper.GetMC().gameRenderer.getCamera();
+        Camera camera = SalHack.GetMC().gameRenderer.getCamera();
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(camera.getPitch()));
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(camera.getYaw() + 180.0F));
         matrices.translate(pos.getX() - camera.getPos().x, pos.getY() - camera.getPos().y, pos.getZ() - camera.getPos().z);

@@ -3,7 +3,7 @@ package me.ionar.salhack.mixin;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.events.player.PlayerJumpEvent;
 import me.ionar.salhack.events.player.PlayerTravelEvent;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -30,7 +30,7 @@ public abstract class MixinPlayerEntity extends LivingEntity {
 
     @Inject(method = {"jump"}, at = {@At("HEAD")}, cancellable = true)
     private void jump(CallbackInfo callback) {
-        if (Wrapper.GetMC().player == null) return;
+        if (SalHack.GetMC().player == null) return;
 
         SalHackMod.NORBIT_EVENT_BUS.post(new PlayerJumpEvent());
     }

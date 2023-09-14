@@ -3,6 +3,8 @@ package me.ionar.salhack.main;
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.managers.*;
 import net.minecraft.text.Text;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.Entity;
 
 public class SalHack {
 
@@ -67,7 +69,7 @@ public class SalHack {
     /// Writes a message to ingame chat
     /// Player must be ingame for this
     public static void SendMessage(String string) {
-        Wrapper.GetMC().player.sendMessage(Text.of(string));
+        SalHack.GetMC().player.sendMessage(Text.of(string));
     }
 
     public static HudManager GetHudManager() {
@@ -116,6 +118,17 @@ public class SalHack {
 
     public static PresetsManager GetPresetsManager() {
         return m_PresetsManager;
+    }
+
+
+    final static MinecraftClient mc = MinecraftClient.getInstance();
+
+    public static MinecraftClient GetMC() {
+        return mc;
+    }
+
+    public static Entity GetPlayer() {
+        return mc.player;
     }
 /*
     public static UUIDManager GetUUIDManager()

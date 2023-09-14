@@ -1,6 +1,6 @@
 package me.ionar.salhack.util.entity;
 
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -27,8 +27,8 @@ public class ItemUtil {
     }
 
     public static void Move(int slot_from, int slot_to) {
-        if (Wrapper.GetMC().player == null || Wrapper.GetMC().interactionManager == null) return;
-        Wrapper.GetMC().interactionManager.clickSlot(Wrapper.GetMC().player.currentScreenHandler.syncId, slot_from, 0, SlotActionType.PICKUP, Wrapper.GetMC().player);
-        Wrapper.GetMC().interactionManager.clickSlot(Wrapper.GetMC().player.currentScreenHandler.syncId, slot_to, 0, SlotActionType.PICKUP, Wrapper.GetMC().player);
+        if (SalHack.GetMC().player == null || SalHack.GetMC().interactionManager == null) return;
+        SalHack.GetMC().interactionManager.clickSlot(SalHack.GetMC().player.currentScreenHandler.syncId, slot_from, 0, SlotActionType.PICKUP, SalHack.GetMC().player);
+        SalHack.GetMC().interactionManager.clickSlot(SalHack.GetMC().player.currentScreenHandler.syncId, slot_to, 0, SlotActionType.PICKUP, SalHack.GetMC().player);
     }
 }

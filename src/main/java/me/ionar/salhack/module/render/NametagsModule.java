@@ -1,10 +1,10 @@
 package me.ionar.salhack.module.render;
 
 import io.github.racoondog.norbit.EventHandler;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.events.render.RenderGameOverlayEvent;
 import me.ionar.salhack.font.FontRenderers;
 import me.ionar.salhack.friend.Friend;
-import me.ionar.salhack.main.Wrapper;
 import me.ionar.salhack.managers.FriendManager;
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
@@ -161,7 +161,7 @@ public class NametagsModule extends Module {
     private String getName(PlayerEntity entity, String name) {
         int responseTime = -1;
 
-        ClientPlayNetworkHandler handler = Wrapper.GetMC().getNetworkHandler();
+        ClientPlayNetworkHandler handler = SalHack.GetMC().getNetworkHandler();
         if (Ping.getValue() && handler != null) {
             PlayerListEntry entry = handler.getPlayerListEntry(entity.getUuid());
             if (entry != null) responseTime = MathHelper.clamp(entry.getLatency(), 0, 300);

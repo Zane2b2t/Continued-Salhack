@@ -2,7 +2,7 @@ package me.ionar.salhack.gui.hud.components;
 
 import me.ionar.salhack.font.FontRenderers;
 import me.ionar.salhack.gui.hud.HudComponentItem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.managers.TickRateManager;
 import me.ionar.salhack.module.ui.HudModule;
@@ -46,8 +46,8 @@ public class TPSComponent extends HudComponentItem {
             context.drawTextWithShadow(mc.textRenderer, Text.of(tickrate), (int) GetX(), (int) GetY(), hud.Rainbow.getValue() ? Rainbow.GetRainbowColorAt(Rainbow.getRainbowColorNumber()) : GetTextColor());
         }
         Rainbow.OnRender();
-        SetWidth(Wrapper.GetMC().textRenderer.getWidth(tickrate));
-        SetHeight(Wrapper.GetMC().textRenderer.fontHeight);
+        SetWidth(SalHack.GetMC().textRenderer.getWidth(tickrate));
+        SetHeight(SalHack.GetMC().textRenderer.fontHeight);
     }
 
 }

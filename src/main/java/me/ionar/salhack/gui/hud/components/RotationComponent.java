@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 import me.ionar.salhack.font.FontRenderers;
 import me.ionar.salhack.gui.hud.HudComponentItem;
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.managers.ModuleManager;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.ui.HudModule;
@@ -81,8 +81,8 @@ public class RotationComponent extends HudComponentItem {
             context.drawTextWithShadow(mc.textRenderer, Text.of(direction), (int) GetX(), (int) GetY(), hud.Rainbow.getValue() ? Rainbow.GetRainbowColorAt(Rainbow.getRainbowColorNumber()) : GetTextColor());
         }
         Rainbow.OnRender();
-        SetWidth(Wrapper.GetMC().textRenderer.getWidth(direction));
-        SetHeight(Wrapper.GetMC().textRenderer.fontHeight);
+        SetWidth(SalHack.GetMC().textRenderer.getWidth(direction));
+        SetHeight(SalHack.GetMC().textRenderer.fontHeight);
     }
 
 }

@@ -1,6 +1,6 @@
 package me.ionar.salhack.mixin;
 
-import me.ionar.salhack.main.Wrapper;
+import me.ionar.salhack.main.SalHack;
 import me.ionar.salhack.module.ui.HudModule;
 import net.minecraft.client.gui.hud.PlayerListHud;
 import net.minecraft.client.network.PlayerListEntry;
@@ -28,6 +28,6 @@ public class PlayerListHudMixin {
 
     @Inject(method = "collectPlayerEntries", at = @At("HEAD"), cancellable = true)
     private void collectPlayerEntriesHook(CallbackInfoReturnable<List<PlayerListEntry>> cir) {
-        cir.setReturnValue(Wrapper.GetMC().player.networkHandler.getListedPlayerListEntries().stream().sorted(ENTRY_ORDERING).limit(HudModule.ExtraTab.getValue()).toList());
+        cir.setReturnValue(SalHack.GetMC().player.networkHandler.getListedPlayerListEntries().stream().sorted(ENTRY_ORDERING).limit(HudModule.ExtraTab.getValue()).toList());
     }
 }

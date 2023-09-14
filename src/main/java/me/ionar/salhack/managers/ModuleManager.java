@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import me.ionar.salhack.SalHackMod;
 import me.ionar.salhack.main.SalHack;
-import me.ionar.salhack.main.Wrapper;
+
 import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Module.ModuleType;
 import me.ionar.salhack.module.Value;
@@ -167,11 +167,11 @@ public class ModuleManager {
         ArrayListAnimations.add(p_Mod);
 
         final Comparator<Module> comparator = (first, second) -> {
-            if (Wrapper.GetMC().textRenderer == null) {
+            if (SalHack.GetMC().textRenderer == null) {
             } else {
                 final String firstName = first.GetFullArrayListDisplayName();
                 final String secondName = second.GetFullArrayListDisplayName();
-                final float dif = Wrapper.GetMC().textRenderer.getWidth(secondName) - Wrapper.GetMC().textRenderer.getWidth(firstName);
+                final float dif = SalHack.GetMC().textRenderer.getWidth(secondName) - SalHack.GetMC().textRenderer.getWidth(firstName);
                 return dif != 0 ? (int) dif : secondName.compareTo(firstName);
             }
             return 0;
@@ -188,7 +188,7 @@ public class ModuleManager {
 
         Module l_Mod = ArrayListAnimations.get(0);
 
-        if ((l_Mod.RemainingXAnimation -= (Wrapper.GetMC().textRenderer.getWidth(l_Mod.GetFullArrayListDisplayName()) / 10)) <= 0) {
+        if ((l_Mod.RemainingXAnimation -= (SalHack.GetMC().textRenderer.getWidth(l_Mod.GetFullArrayListDisplayName()) / 10)) <= 0) {
             ArrayListAnimations.remove(l_Mod);
             l_Mod.RemainingXAnimation = 0;
         }
